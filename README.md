@@ -35,6 +35,4 @@ removeItemCart() {
 emptyCart() {
   this.cart.doEmptyCart();
 }
-
- 
 ```
