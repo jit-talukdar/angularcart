@@ -10,7 +10,9 @@ $ ng serve -o
 ```
 ## Code scaffolding
 The cart service functions for reference
-`addToCart(@param1ItemObject, @param2Optional) | removeItemCart(@paramItemObject) | doEmptyCart()`
+```
+addToCart(@param1ItemObject, @param2Optional) | removeItemCart(@paramItemObject) | doEmptyCart()
+```
 
 #### Observable Functions
 `getCartItems() | getCartTotalPrice()`
