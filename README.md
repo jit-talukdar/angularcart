@@ -13,7 +13,7 @@ $ ng serve -o
 addToCart(@param1ItemObject, @param2Optional) | removeItemCart(@paramItemObject) | doEmptyCart()
 ```
 
-#### Observable Functions
+#### Observable return types
 `getCartItems() | getCartTotalPrice()`
 
 ## Snippets`
