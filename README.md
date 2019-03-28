@@ -12,7 +12,7 @@ $ ng serve -o
 The cart service functions for reference
 `addToCart(@param1ItemObject, @param2Optional) | removeItemCart(@paramItemObject) | doEmptyCart()`
 
-### Observables
+#### Observable Functions
 `getCartItems() | getCartTotalPrice()`
 
 ## Snippets`
