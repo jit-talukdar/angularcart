@@ -40,15 +40,15 @@ export class AppComponent implements OnInit {
   constructor(private cart: CartService) { }
 
   addItemToCart(product: Product) {
-    this.cart.addToCart(product); // Here 1 item will be added in the cart as default.
-    /**
-     * Number of items can also be passed as second argument
-     */
-    // this.cart.addToCart(product, 2); // Here 2 items will be added
+    this.cart.addToCart(product);
   }
 
   removeItemCart(product: Product) {
-    this.cart.removeQntyCart(product);
+    this.cart.removeFromCart(product);
+  }
+
+  emptyCart() {
+    this.cart.doEmptyCart();
   }
 
   ngOnInit() {

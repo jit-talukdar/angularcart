@@ -17,17 +17,18 @@
             <tr *ngFor="let product of products">
                 <td>{{product.id}}</td>
                 <td>{{product.name}}</td>
-                <td>{{product.price}}</td>
+                <td>${{product.price}}</td>
                 <td><button (click)="addItemToCart(product)">Add to Cart</button></td>
             </tr>
         </tbody>
     </table>
 </div>
 
-<div style="padding: 0 10px">
+<div style="padding: 0 10px; text-align: center;">
   <h3>Your Cart</h3>
+  <span *ngIf="!cartItems.length">Your cart is empty</span>
   <div *ngIf="cartItems.length" >
-      <table border="1" style="width: 50%; border: 1px solid; text-align: center;">
+      <table border="1" style="width: 100%; border: 1px solid; text-align: center;">
           <thead>
               <tr>
                   <th>Product Name</th>
@@ -38,22 +39,22 @@
           <tbody>
             <tr *ngFor="let item of cartItems" >
               <td>{{item.name}}</td>
-              <td>{{item.price}} X
-                <button (click)="addItemToCart(item)" >+</button>
-                {{item.item}}
-                <button (click)="removeItemCart(item)" >-</button>
+              <td>${{item.price}} X
+                <button (click)="addItemToCart(item)" style="border-radius: 100%;width: 28px;text-align: center;height: 27px;background: transparent;color:black;">+</button>
+                {{item.qty}}
+                <button (click)="removeItemCart(item)" style="border-radius: 100%;width: 28px;text-align: center;height: 27px;background: transparent;color:black;">-</button>
               </td>
-              <td>{{item.total}}</td>
+              <td>${{item.total}}</td>
             </tr>
             <tr>
-              <td colspan='2'>Net Total</td>
-              <td>{{cartTotal}}</td>
+              <td><button (click)="emptyCart()" >Empty Cart</button></td>
+              <td>Net Total</td>
+              <td>${{cartTotal}}</td>
             </tr>
           </tbody>
           <tbody>
           </tbody>
       </table>
   </div>
-  <div *ngIf="!cartItems.length" >No items in your cart</div>
 </div>
 
