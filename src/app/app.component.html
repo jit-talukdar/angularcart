@@ -1,20 +1,59 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div style="margin: 0 0 10px 0; padding: 25px; background: #212121; text-align: right; color: white;">
+    <strong>Cart</strong> (<span style="color:red;">{{cartItems.length}}</span>)
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div style="padding: 0 10px">
+    <h3>Products</h3>
+    <table border="1" style="width: 100%; border: 1px solid; text-align: center;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td><button (click)="addItemToCart(product)">Add to Cart</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="padding: 0 10px">
+  <h3>Your Cart</h3>
+  <div *ngIf="cartItems.length" >
+      <table border="1" style="width: 50%; border: 1px solid; text-align: center;">
+          <thead>
+              <tr>
+                  <th>Product Name</th>
+                  <th>Price X Items</th>
+                  <th>Total</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cartItems" >
+              <td>{{item.name}}</td>
+              <td>{{item.price}} X
+                <button (click)="addItemToCart(item)" >+</button>
+                {{item.item}}
+                <button (click)="removeItemCart(item)" >-</button>
+              </td>
+              <td>{{item.total}}</td>
+            </tr>
+            <tr>
+              <td colspan='2'>Net Total</td>
+              <td>{{cartTotal}}</td>
+            </tr>
+          </tbody>
+          <tbody>
+          </tbody>
+      </table>
+  </div>
+  <div *ngIf="!cartItems.length" >No items in your cart</div>
+</div>
 
