@@ -10,7 +10,7 @@ $ ng serve -o
 ```
 ## Code scaffolding
 ```
-addToCart(@param1ItemObject, @param2Optional) | removeItemCart(@paramItemObject) | doEmptyCart()
+addToCart(@param1: ProductObject, @param2: number(Optional)) | removeItemCart(@paramItemObject) | doEmptyCart()
 ```
 
 #### Observable return types
